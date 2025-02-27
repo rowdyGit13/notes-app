@@ -45,7 +45,7 @@ export const getProfileByUserId = async (userID: string) => {
       throw new Error("Failed to update profile");
     }
   };
-  
+
   export const updateProfileByStripeCustomerId = async (stripeCustomerID: string, data: Partial<InsertProfile>) => {
     try {
       const [updatedProfile] = await db.update(profilesTable).set(data).where(eq(profilesTable.stripeCustomerID, stripeCustomerID)).returning();
@@ -56,6 +56,9 @@ export const getProfileByUserId = async (userID: string) => {
     }
   };
   
+
+  // DELETE a profile.
+  // create a function named deleteProfile that takes in argument named userID of type string
   export const deleteProfile = async (userID: string) => {
     try {
       await db.delete(profilesTable).where(eq(profilesTable.userID, userID));
