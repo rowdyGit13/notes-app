@@ -34,6 +34,8 @@ export const getProfileByUserId = async (userID: string) => {
     return db.query.profiles.findMany();
   };
   
+  // UPDATE a profile.
+  // create a function named updateProfile that takes in argument named userID of type string and data of type Partial<InsertProfile>
   export const updateProfile = async (userID: string, data: Partial<InsertProfile>) => {
     try {
       const [updatedProfile] = await db.update(profilesTable).set(data).where(eq(profilesTable.userID, userID)).returning();
