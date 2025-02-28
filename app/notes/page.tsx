@@ -5,18 +5,15 @@ import { redirect } from "next/navigation";
 export default async function NotesPage() {
   const { userId } = await auth();
 
-  if (!userId) {
-    return redirect("/login");
-  }
+  if (!userId) return redirect("/login");
 
-  const response = await getProfileByUserIdAction(userId);
+  const { data: profile } = await getProfileByUserIdAction(userId);
 
-  if (!response.data) {
-    return redirect("/signup");
-  }
-  if (response.data.membership === "free") {
-    return redirect("/pricing");
-  }
-  return <div>notes</div>;
+  if (!profile) return redirect("/signup");
+  if (profile.membership === "free") return redirect("/pricing");
+
+  return (
+    <div className="flex h-screen">Hello World
+    </div>
+  );
 }
-
