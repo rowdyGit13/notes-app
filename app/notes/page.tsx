@@ -17,6 +17,6 @@ export default async function NotesPage() {
   if (response.data.membership === "free") {
     return redirect("/pricing");
   }
-  return <div>Notes</div>;
+  return <div>notes</div>;
 }
 
