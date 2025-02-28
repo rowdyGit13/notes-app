@@ -33,7 +33,7 @@ export default async function RootLayout({
 
   if (userId) {
     const profile = await getProfileByUserIdAction(userId);
-    if (!profile.data) {
+    if (!profile) {
       await createProfileAction({ userID: userId, stripeSubscriptionID: "" });
     }
   }
