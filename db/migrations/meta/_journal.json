@@ -15,6 +15,13 @@
       "when": 1740748935414,
       "tag": "0001_faithful_richard_fisk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1740774393198,
+      "tag": "0002_late_thor",
+      "breakpoints": true
     }
   ]
 }
